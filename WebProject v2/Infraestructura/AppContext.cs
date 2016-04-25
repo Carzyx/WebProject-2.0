@@ -11,10 +11,28 @@ namespace Infraestructura
     public class AppContext : DbContext, IUnitOfWork, IRepositoryCustomer
     {
        public AppContext()
-       {
+        {
+        }
 
-       }
-       
-       public IDbSet<Customer> Customer { get; set; }
+        public void Add()
+        {
+            Console.WriteLine("Create");
+        }
+
+        public void Get()
+        {
+            Console.WriteLine("Read");
+        }
+
+        public void Update()
+        {
+            Console.WriteLine("Update");
+        }
+
+        public void Delete()
+        {
+            Console.WriteLine("Delete");
+        }
+    }
     }
 }
