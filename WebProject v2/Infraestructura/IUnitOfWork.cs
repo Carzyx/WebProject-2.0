@@ -7,8 +7,8 @@ using Domain;
 
 namespace Infraestructura
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork:IDisposable
     {
-
+        public int SaveChanges { get; set; }
     }
 }

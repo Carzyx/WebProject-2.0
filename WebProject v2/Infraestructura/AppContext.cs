@@ -10,11 +10,7 @@ namespace Infraestructura
 {
     public class AppContext : DbContext, IUnitOfWork, IRepositoryCustomer
     {
-       public AppContext()
-       {
-
-       }
-       
+    
        public IDbSet<Customer> Customer { get; set; }
     }
 }
