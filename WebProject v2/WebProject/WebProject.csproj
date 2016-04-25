@@ -301,6 +301,14 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{a1f71c58-7658-4da5-9338-8aafa17b61c2}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infraestructura\Infraestructura.csproj">
+      <Project>{85cff542-975b-47ac-9640-bc20bd723a2f}</Project>
+      <Name>Infraestructura</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{5b3d9d04-f628-49ea-bbda-55b171f38ba9}</Project>
       <Name>Services</Name>
