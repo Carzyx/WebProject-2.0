@@ -8,36 +8,69 @@ using Infraestructura;
 
 namespace Services
 {
-    public class CustomerService : ICustomerService
+    public class CustomerService : ServiceBase, ICustomerService
     {
-        readonly AppContext _dbContext;
-        public CustomerService(AppContext dbContext)
+        readonly IRepositoryCustomer _repository;
+
+        public CustomerService(IRepositoryCustomer repository)
         {
-            if (null == dbContext)
+            if (null == repository)
             {
                 throw new ArgumentNullException("repository");
             }
-            _dbContext = dbContext;
+            _repository = repository;
         }
 
-        public Customer Add()
+        public IEnumerable<Customer> GetAll(string name)
         {
-            _dbContext.Add();
+            return _repository.Customers.Where(c => c.Name.Contains(name));
         }
 
-        public Customer Get()
+        public Customer Add(Customer customer)
         {
-            _dbContext.Get();
+            var customernew = _repository.Customers.Add(customer);
+            SaveChanges();
+            return customernew;
         }
 
-        public void Update()
+        public Customer Get(int id)
         {
-            _dbContext.Update();
+            return GetCustomer(id);
         }
 
-        public void Delete()
+        public void Update(int id, Customer customer)
         {
-            _dbContext.Delete();
+            var customerOld = GetCustomer(id);
+            CheckNullCustomer(customerOld);
+            UpdateCustomer(customer, customerOld);
+            SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var customer = GetCustomer(id);
+            CheckNullCustomer(customer);
+            _repository.Customers.Remove(customer);
+            SaveChanges();   
+        }
+
+        private static void UpdateCustomer(Customer customer, Customer customerOld)
+        {
+            customerOld.Name = customer.Name;
+            customerOld.Phone = customer.Phone;
+        }
+
+        private static void CheckNullCustomer(Customer customer)
+        {
+            if(null==customer)
+            {
+                throw new NullReferenceException("El cliente no existe");
+            }
+        }
+
+        private Customer GetCustomer(int id)
+        {
+            return _repository.Customers.Where(c => c.Id == id).FirstOrDefault();
         }
     }
 }
