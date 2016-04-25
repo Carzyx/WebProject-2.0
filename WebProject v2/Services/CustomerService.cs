@@ -13,6 +13,7 @@ namespace Services
         readonly IRepositoryCustomer _repository;
 
         public CustomerService(IRepositoryCustomer repository)
+            :base(repository)
         {
             if (null == repository)
             {
