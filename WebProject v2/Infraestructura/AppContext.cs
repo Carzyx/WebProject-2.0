@@ -10,6 +10,7 @@ namespace Infraestructura
 {
     public class AppContext : DbContext, IUnitOfWork, IRepositoryCustomer
     {
+<<<<<<< HEAD
        public AppContext()
         {
         }
@@ -34,5 +35,9 @@ namespace Infraestructura
             Console.WriteLine("Delete");
         }
     }
+=======
+    
+       public IDbSet<Customer> Customer { get; set; }
+>>>>>>> 00df84565907ad3aeed5fae44b01518f8eef28c8
     }
 }
