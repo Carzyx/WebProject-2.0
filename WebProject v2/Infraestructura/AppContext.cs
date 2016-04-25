@@ -12,6 +12,5 @@ namespace Infraestructura
     {
         public IDbSet<Customer> Customers{get; set;}
 
-
     }
 }
