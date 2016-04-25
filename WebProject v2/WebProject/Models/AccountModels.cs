@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
-using Domain;
 
 namespace WebProject.Models
 {
@@ -17,8 +16,6 @@ namespace WebProject.Models
         }
 
         public DbSet<UserProfile> UserProfiles { get; set; }
-
-        public DbSet<Customer> Customers { get; set; }
     }
 
     [Table("UserProfile")]
