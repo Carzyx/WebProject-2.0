@@ -7,8 +7,10 @@ using Domain;
 
 namespace Infraestructura
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork:IDisposable
     {
 
+        int SaveChanges();
+         
     }
 }

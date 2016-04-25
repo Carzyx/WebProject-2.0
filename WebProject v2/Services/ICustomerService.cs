@@ -11,8 +11,9 @@ namespace Services
     public interface ICustomerService
     {
         Customer Add(Customer customer);
-        int Delete(Customer customer);
-        int Update(Customer customer);
+        void Delete(int id);
+        void Update(int id, Customer customer);
         Customer Get(int id);
+        IEnumerable<Customer> GetAll(string name);
     }
 }

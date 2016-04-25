@@ -11,9 +11,21 @@ namespace Services
     public class ServiceBase : IDisposable
     {
         readonly IUnitOfWork _unitOfWork;
-        public ServiceBase()
+        public ServiceBase(IUnitOfWork unitOfWork)
         {
-
+            if (null == unitOfWork)
+            {
+                throw new ArgumentNullException("Unit of work");
+            }
+            _unitOfWork = unitOfWork;
+        }
+        public int SaveChanges()
+        {
+            return _unitOfWork.SaveChanges();
+        }
+        public void Dispose()
+        {
+            _unitOfWork.Dispose();
         }
     }
 }
