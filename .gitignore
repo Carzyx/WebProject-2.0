@@ -1,4 +1,5 @@
 bin/
 obj/
+App_Data/
 
-WebProjectv11.suo
+*.suo
