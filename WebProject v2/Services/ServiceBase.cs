@@ -8,7 +8,7 @@ using Infraestructura;
 
 namespace Services
 {
-    public class ServiceBase //: IDisposable
+    public class ServiceBase : IDisposable
     {
         readonly IUnitOfWork _unitOfWork;
         public ServiceBase()

@@ -8,7 +8,11 @@ using Infraestructura;
 
 namespace Services
 {
-    interface ICustomerService
+    public interface ICustomerService
     {
+        Customer Add(Customer customer);
+        int Delete(Customer customer);
+        int Update(Customer customer);
+        Customer Get(int id);
     }
 }
